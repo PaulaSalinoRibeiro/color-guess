@@ -1,0 +1,12 @@
+.ball {
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+#answer {
+    font-weight: 600;
+    font-size: 20px;
+}
