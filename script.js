@@ -14,10 +14,12 @@ let paragraph = document.createElement('p');
 paragraph.id='rgb-color';
 body.appendChild(paragraph);
 
-/* let score =  document.createElement('p');
+
+let score =  document.createElement('p');
 score.id = 'score';
-score.innerText = 'Placar: 0';
-body.appendChild(score); */
+body.appendChild(score); 
+let num = 0;
+score.innerText = 'Placar: ' + num;
 
 let container = document.createElement('div');
 container.id = 'container';
@@ -32,7 +34,6 @@ for(let index = 0; index < 6; index += 1){
     bgColor.push(ball.style.backgroundColor);  
 }
 
-console.log(bgColor);
 paragraph.innerText = bgColor[Math.floor(Math.random()*6)]
 
 let answer = document.createElement('p');
@@ -43,10 +44,10 @@ body.appendChild(answer);
 container.addEventListener('click', compare);
 
  function compare(event){
-    //console.log(event.target.style.backgroundColor);
-    // console.log(paragraph.innerText);
     if(event.target.style.backgroundColor === paragraph.innerText){
         answer.innerText = 'Acertou!' 
+        num += 3;
+        score.innerText = 'Placar: ' + num;
     } else{
         answer.innerText = 'Errou! Tente novamente!'
     } 
@@ -61,11 +62,13 @@ reset.addEventListener('click', reload);
 
 function reload(){
     let balls = document.querySelectorAll('.ball');
+    let newBgColors = [];
     for(let index = 0; index < balls.length; index += 1){
         balls[index].style.backgroundColor = randomColor();
+        newBgColors.push(balls[index].style.backgroundColor);
     } 
     if(answer.innerText !== 'Escolha uma cor'){
         answer.innerText = 'Escolha uma cor'
     }
-    paragraph.innerText = randomColor();
+    paragraph.innerText = newBgColors[Math.floor(Math.random()*6)];
 } 
