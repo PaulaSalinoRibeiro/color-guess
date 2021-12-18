@@ -12,23 +12,28 @@ function randomColor(){
 
 let paragraph = document.createElement('p');
 paragraph.id='rgb-color';
-paragraph.innerText = randomColor();
 body.appendChild(paragraph);
+
+/* let score =  document.createElement('p');
+score.id = 'score';
+score.innerText = 'Placar: 0';
+body.appendChild(score); */
 
 let container = document.createElement('div');
 container.id = 'container';
 body.appendChild(container);
 
-function createdBall(){
+let bgColor = [];
+for(let index = 0; index < 6; index += 1){
     let ball = document.createElement('div');
     ball.className = 'ball';
-    ball.style.backgroundColor = randomColor();
     container.appendChild(ball);
+    ball.style.backgroundColor = randomColor();
+    bgColor.push(ball.style.backgroundColor);  
 }
 
-for(let index = 0; index < 6; index += 1){
-    createdBall();
-}
+console.log(bgColor);
+paragraph.innerText = bgColor[Math.floor(Math.random()*6)]
 
 let answer = document.createElement('p');
 answer.id = 'answer';
@@ -37,13 +42,15 @@ body.appendChild(answer);
 
 container.addEventListener('click', compare);
 
-function compare(event){
-    if(event.target.backgroundColor === paragraph.innerText){
-        answer.innerText = 'Acertou!'
+ function compare(event){
+    //console.log(event.target.style.backgroundColor);
+    // console.log(paragraph.innerText);
+    if(event.target.style.backgroundColor === paragraph.innerText){
+        answer.innerText = 'Acertou!' 
     } else{
         answer.innerText = 'Errou! Tente novamente!'
-    }
-}
+    } 
+}  
 
 let reset = document.createElement('button');
 reset.id = 'reset-game';
