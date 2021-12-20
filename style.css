@@ -1,3 +1,28 @@
+#title {
+    position: fixed;
+    left: 44%;
+    top:18%;
+}
+
+#rgb-color {
+    position: fixed;
+    left: 47%;
+    top: 25%;
+    font-weight: 600;
+}
+
+#score {
+    position: fixed;
+    left: 48%;
+    top: 28%;
+    font-weight: 600;
+}
+
+#container {
+    position: fixed;
+    left: 42%;
+    top: 34%
+}
 .ball {
     border: 1px solid black;
     height: 50px;
@@ -7,6 +32,22 @@
 }
 
 #answer {
+    position: fixed;
+    left: 46%;
+    top: 40%;
     font-weight: 600;
     font-size: 20px;
+}
+
+#reset-game {
+    position: fixed;
+    left: 48%;
+    top: 48%
+}
+
+body {
+    background-image: url('./img/img.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: sans-serif;
 }
